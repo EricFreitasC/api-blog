@@ -206,5 +206,4 @@ def excluir_autor(autor, id_autor):
 
 
 app.run(port=5000, host='localhost', debug=True)
-resultado = jwt.decode(token, app.config['SECRET_KEY'],algorithms=['HS256'])
     
