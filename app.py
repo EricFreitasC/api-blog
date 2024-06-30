@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, make_response
+from inicializar_banco_de_dados import Autor,Postagem,app,db
 from flask_sqlalchemy import SQLAlchemy
 import jwt
 import datetime
@@ -42,7 +43,7 @@ def token_obrigatorio(f):
         if not token:
             return jsonify({'mensagem': 'Token de autenticação precisa ser incluído nessa requisição!'})
         try:
-            dados = jwt.decode(token, app.config['SECRET_KEY'])
+            dados = jwt.decode(token, app.config['SECRET_KEY'],algorithms=['HS256'])
             autor_atual = Autor.query.filter_by(
                 id_autor=dados['id_autor']).first()
         except:
