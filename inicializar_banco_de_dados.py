@@ -29,7 +29,7 @@ def inicializar():
 
     db.drop_all()
     db.create_all()
-    autor = Autor(nome='Jhonatan', email='jhonatan@hotmail.com',
+    autor = Autor(nome='eric', email='eric@gmail.com',
                   senha='senha123', admin=True)
     db.session.add(autor)
     db.session.commit()
