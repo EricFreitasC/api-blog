@@ -25,10 +25,17 @@ class Autor(db.Model):
     postagens = db.relationship('Postagem')
 
 
-with app.app_context():
-    db.drop_all()
-    db.create_all()
-    autor = Autor(nome='eric', email='eric@gmail.com',
-                    senha='senha123', admin=True)
-    db.session.add(autor)
-    db.session.commit()
+def inicializar_banco():
+    with app.app_context():
+        # Executar o comando para criar o banco de dados
+        db.drop_all()
+        db.create_all()
+        # Criar usuários adminstradores
+        autor = Autor(nome='eric', email='eric@gmail.com',
+                    senha='123456', admin=True)
+        db.session.add(autor)
+        db.session.commit()
+
+
+if __name__ == "__main__":
+    inicializar_banco()
