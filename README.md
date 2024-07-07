@@ -1,2 +1,2 @@
 # api-blog
-Api de Blog, ondeé possivel cadastrar autores e postagens
+Api de Blog, onde é possivel cadastrar autores e postagens
